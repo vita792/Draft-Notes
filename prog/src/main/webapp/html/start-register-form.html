@@ -1,0 +1,37 @@
+<div style="background-color: #bacddc" class="jumbotron jumbotron-fluid" action="/" method="get">
+    <div class="container" style="text-align: center">
+        <h6 class="display-4"> ~ Registration ~ </h6>
+        <hr />
+        <p class="lead"><i>Your secrets, plans, words will be served in a secret!</i></p>
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-2">
+        <form action="/register" method="post">
+            <fieldset class="account-info-register">
+                <label>
+                    user name
+                    <input type="text" id="name" name="name">
+                </label>
+                <label>
+                    user email
+                    <input type="text" id="email" name="email">
+                </label>
+                <label>
+                    password
+                    <input type="password" id="pass" name="pass">
+                </label>
+                <label>
+                    password repeat
+                    <input type="password" id="repass" name="repass">
+                </label>
+            </fieldset>
+            <fieldset class="account-action-register">
+                <input class="btn" type="submit" name="submit" value="Register!">
+                <label>
+                    <input type="checkbox" name="remember"> Save me!
+                </label>
+            </fieldset>
+        </form>
+    </div>
+</div>

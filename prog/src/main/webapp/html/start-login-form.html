@@ -1,0 +1,26 @@
+<div style="background-color: #bacddc" class="jumbotron jumbotron-fluid" action="/" method="get">
+    <div class="container" style="text-align: center">
+        <h6 class="display-4"> ~ Enter Your Login ~ </h6>
+    <hr />
+        <p class="lead"><i>Your secrets, plans, words will be served in a secret!</i></p>
+    </div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-2">
+        <form action="/login" method="post">
+            <fieldset class="account-info">
+                <label>
+                    user email
+                    <input type="text" id="email" name="email">
+                </label>
+                <label>
+                    password
+                    <input type="password" id="pass" name="pass">
+                </label>
+            </fieldset>
+            <fieldset class="account-action" >
+                <input class="btn" type="submit" name="submit" value="login">
+            </fieldset>
+        </form>
+    </div>
+</div>
