@@ -7,12 +7,30 @@ public class User {
     private String pass;
     private String repass;
 
-    public User(long id, String name, String email, String pass, String repass) {
+    public User(long id, String name, String email, String pass) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.pass = pass;
+    }
+
+    public User(String name, String email, String pass, String repass) {
+        this.name = name;
+        this.email = email;
+        this.pass = pass;
         this.repass = repass;
+    }
+    public User() {  }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", pass='" + pass + '\'' +
+                ", repass='" + repass + '\'' +
+                '}';
     }
 
     public long getId() {
@@ -46,12 +64,7 @@ public class User {
     public void setPass(String pass) {
         this.pass = pass;
     }
-
     public String getRepass() {
         return repass;
-    }
-
-    public void setRepass(String repass) {
-        this.repass = repass;
     }
 }

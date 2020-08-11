@@ -6,5 +6,5 @@ import java.sql.SQLException;
 
 public interface UserDao {
     User findUserByEmail(String email) throws SQLException;
-    User saveUser(String name, String email, String pass, String repass) throws SQLException;
+    User saveUser(User user) throws SQLException;
 }

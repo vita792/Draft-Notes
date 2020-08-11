@@ -9,12 +9,12 @@ import java.sql.SQLException;
 public class DataSource {
     Connection connection = null;
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    static final String DB_URL = "mysql:jdbc://localhost/notes?user=root&password=кщще";
+    static final String DB_URL = "jdbc:mysql://localhost/user?user=root2&password=root?useSSL=false&serverTimezone=UTC";
 
     public DataSource() {
         try {
-            Class.forName(JDBC_DRIVER);
-        } catch (ClassNotFoundException e) {
+            Class.forName(JDBC_DRIVER).newInstance();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
