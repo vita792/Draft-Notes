@@ -4,4 +4,13 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  <servlet-name>Servlet name</servlet-name>
+  <servlet-class>org.example.notes.Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Servlet name</servlet-name>
+    <url-pattern>/index</url-pattern>
+  </servlet-mapping>
+
 </web-app>
