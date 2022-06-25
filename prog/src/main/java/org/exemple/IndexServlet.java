@@ -1,4 +1,4 @@
-//package org.example.notes;
+//package org.exemple;
 //
 //import javax.servlet.ServletException;
 //import javax.servlet.annotation.WebServlet;
@@ -8,22 +8,26 @@
 //import java.io.IOException;
 //import java.io.PrintWriter;
 //
-//@WebServlet(name = "Servlet", urlPatterns={"/prog_war/"})
-//public class Servlet extends HttpServlet {
+//@WebServlet(name = "IndexServlet", urlPatterns = {"/"})
+//public class IndexServlet extends HttpServlet {
 //    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-//            throws ServletException, IOException { }
+//            throws ServletException, IOException {
+//
+//    }
 //
 //    protected void doGet(HttpServletRequest request, HttpServletResponse response)
 //            throws ServletException, IOException {
 //        response.setContentType("text/html;charset=UTF-8");
-//        PrintWriter out = response.getWriter();
-//        try{
-//            out.println("<html><head><title></title></head><body>");
-//            out.write("<h1>Hello, Servlet Word!</h1>");
-//            out.println("</body>");
-//            out.println("</html>");
+//
+//        PrintWriter writer = response.getWriter();
+//
+//        try {
+//            writer.println(PageParts.PAGE_HEADER);
+//            writer.write("<h1>Hello, Servlet Word!</h1>");
+//            writer.println("</body>");
+//            writer.println(PageParts.PAGE_FOOTER);
 //        } finally {
-//            out.close();
+//            writer.close();
 //        }
 //    }
 //}
