@@ -2,13 +2,12 @@ package org.example.notes.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
-public class DataSource {
-
-    Connection connection = null;
-
+public class DataSource implements AutoCloseable {
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
     static final String DB_URL = "jdbc:mysql://localhost/secret_notes?users=root&password=root";
+    Connection connection = null;
 
     public DataSource() {
         try {
@@ -18,18 +17,22 @@ public class DataSource {
         }
     }
 
-    public Connection createConnection() {
-        Connection connectionCreate = null;
+    public Connection getConnection() {
         try {
-            if (connection != null) {
-                System.out.println("Connection already created");
-            } else {
-                connectionCreate = DriverManager.getConnection(DB_URL);
+            if (connection == null) {
+                connection = DriverManager.getConnection(DB_URL);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
-        return connectionCreate;
+
+        return connection;
     }
 
+    @Override
+    public void close() throws Exception {
+        if (connection != null) {
+            connection.close();
+        }
+    }
 }
