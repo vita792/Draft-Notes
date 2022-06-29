@@ -1,7 +1,7 @@
 package org.example.notes.controllers;
 
 import org.example.notes.dao.UserDao;
-import org.example.notes.dao.UserDaoImpl;
+import org.example.notes.dao.UserImpl;
 import org.example.notes.models.User;
 
 import javax.servlet.ServletException;
@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 
 @WebServlet(name = "UserServlet", urlPatterns = {"/user/*"})
 public class UserServlet extends HttpServlet {
@@ -25,7 +24,7 @@ public class UserServlet extends HttpServlet {
 
         switch (request.getPathInfo()) {
             case "/list-users":
-                UserDao userDao = new UserDaoImpl();
+                UserDao userDao = new UserImpl();
                 User user = userDao.findByEmail("test1@ukr.net");
 
                 if (user != null) {

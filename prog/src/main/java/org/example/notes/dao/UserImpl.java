@@ -8,17 +8,17 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
-public class UserDaoImpl implements UserDao {
+public class UserImpl implements UserDao {
     @Override
     public User findByEmail(String email) {
         DataSource dataSource = new DataSource();
         try (Connection connection = dataSource.getConnection();
              Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(
-                     "SELECT * FROM users WHERE user.email=\"" + email + "\";"
+                     "SELECT * FROM users WHERE users.email=\"" + email + "\";"
              );) {
             if (resultSet.next()) {
-                return new User(
+                User user = new User(
                         resultSet.getLong("id"),
                         resultSet.getString("email"),
                         resultSet.getString("name"),
@@ -26,6 +26,8 @@ public class UserDaoImpl implements UserDao {
                         resultSet.getString("date"),
                         resultSet.getInt("role")
                 );
+                System.out.println(user);
+                return user;
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
